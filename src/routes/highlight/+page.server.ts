@@ -29,6 +29,7 @@ export const actions = {
 		const form_data = await request.formData();
 		const user = form_data.get('user');
 		const pwd = form_data.get('pwd');
+		console.log(user, USER, pwd, PASSWORD);
 		if (user === USER && pwd === PASSWORD) {
 			cookies.set('user', valid, { path: '/' });
 			return {
