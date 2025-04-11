@@ -1,0 +1,13 @@
+* {
+	box-sizing: border-box;
+}
+:root {
+	--color-svelte: #ff3e00;
+	--color-white: #eee;
+	--color-black: #111;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+}
