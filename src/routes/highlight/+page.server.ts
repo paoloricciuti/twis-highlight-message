@@ -1,4 +1,4 @@
-import { PASSWORD, USER } from '$env/static/private';
+import { PASSWORD, USERNAME as USER } from '$env/static/private';
 import { controllers } from '$lib';
 import { fail } from '@sveltejs/kit';
 
@@ -29,7 +29,6 @@ export const actions = {
 		const form_data = await request.formData();
 		const user = form_data.get('user');
 		const pwd = form_data.get('pwd');
-		console.log(user, USER, pwd, PASSWORD);
 		if (user === USER && pwd === PASSWORD) {
 			cookies.set('user', valid, { path: '/' });
 			return {
