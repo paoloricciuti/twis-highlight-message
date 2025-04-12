@@ -39,13 +39,15 @@
 		<div
 			style:--size={font_size}
 			in:fly|global={{
-				x: '-100%',
+				x: '-150%',
 				duration: 500,
-				delay: 500
+				delay: 500,
+				opacity: 1
 			}}
 			out:fly|global={{
-				x: '-100%',
-				duration: 500
+				x: '-150%',
+				duration: 500,
+				opacity: 1
 			}}
 		>
 			{highlighted_message}
