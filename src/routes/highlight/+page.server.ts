@@ -30,7 +30,7 @@ export const actions = {
 		const user = form_data.get('user');
 		const pwd = form_data.get('pwd');
 		if (user === USER && pwd === PASSWORD) {
-			cookies.set('user', valid, { path: '/' });
+			cookies.set('user', valid, { path: '/', maxAge: 60 * 60 * 24 * 365 });
 			return {
 				success: true
 			};
