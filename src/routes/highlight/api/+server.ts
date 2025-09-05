@@ -1,7 +1,7 @@
 import { controllers, valid } from '$lib';
 import { json } from '@sveltejs/kit';
 
-export async function GET({ request }) {
+export async function POST({ request }) {
 	const user_cookie = request.headers.get('Authorization')?.replace('Bearer ', '');
 	if (!user_cookie || user_cookie !== valid) {
 		return json({ message: 'Unauthorized' }, { status: 401 });
