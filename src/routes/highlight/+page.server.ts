@@ -1,8 +1,6 @@
 import { PASSWORD, USERNAME as USER } from '$env/static/private';
-import { controllers } from '$lib';
+import { controllers, valid } from '$lib';
 import { fail } from '@sveltejs/kit';
-
-const valid = await sha256(USER + PASSWORD);
 
 export async function load({ cookies }) {
 	let user = cookies.get('user');
@@ -12,16 +10,6 @@ export async function load({ cookies }) {
 	return {
 		user
 	};
-}
-
-async function sha256(str: string) {
-	const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-	let hexString = '';
-	const view = new Uint8Array(hash);
-	for (let i = 0; i < view.length; i++) {
-		hexString += ('0' + view[i].toString(16)).slice(-2);
-	}
-	return hexString;
 }
 
 export const actions = {
