@@ -9,9 +9,6 @@ export async function POST({ request }) {
 	const form_data = await request.json();
 	const message = form_data.message;
 	const user = form_data.user;
-	if (!message || !user) {
-		return json({ message: 'Bad Request' }, { status: 400 });
-	}
 	for (const controller of controllers) {
 		controller.enqueue(`data: ${JSON.stringify({ message, user })}\n\n`);
 	}
